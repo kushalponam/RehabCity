@@ -15,8 +15,8 @@ public class ObjectiveManager :MonoBehaviour{
 	private ActionObjective AObj;
 	private CollectionObjective CObj;
 
-    private GameManager gamemanager;
-    private InventoryManager inventorymanager;
+    	private GameManager gamemanager;
+    	private InventoryManager inventorymanager;
 	// Varialbe for main objective class which stores the current objective spawned	
 	private  Objectives Obj;
 	
@@ -48,7 +48,7 @@ public class ObjectiveManager :MonoBehaviour{
 		}
 	}
 
-    private List<Objectives> LevelList;
+	private List<Objectives> LevelList;
 	
 	// number of objectives completed
 	private int CompletedObjectives=0;
@@ -60,17 +60,17 @@ public class ObjectiveManager :MonoBehaviour{
 	[HideInInspector]
 	public bool transition=false;
 
-    private DrawObjectiveList drawobjective;
+    	private DrawObjectiveList drawobjective;
 
-    private int score=0;
+    	private int score=0;
 
-    public int GetScore
-    {
-        get
-        {
-            return score;
-        }
-    }
+    	public int GetScore
+    	{
+        	get
+        	{
+        	 return score;
+        	}
+    	}
 
    
 
@@ -91,7 +91,7 @@ public class ObjectiveManager :MonoBehaviour{
         get { return Level; }
     }
 
-
+	
     private DisplayScore ScoreDisplay;
     private static ObjectiveManager s_Instance = null;
     public static ObjectiveManager Instance
@@ -111,8 +111,8 @@ public class ObjectiveManager :MonoBehaviour{
     }
 	void Start()
 	{
-		Obj = new Objectives();
-		ObjQueue = new Queue<Objectives>();
+	Obj = new Objectives();
+	ObjQueue = new Queue<Objectives>();
         drawobjective = GetComponent<DrawObjectiveList>();
         inventorymanager = GetComponent<InventoryManager>();
         gamemanager = GetComponent<GameManager>();
@@ -148,69 +148,6 @@ public class ObjectiveManager :MonoBehaviour{
 	{
         Obj = LevelList[ObjectiveNumber];
         Debug.Log("Added " + Obj + " as the objective");
-       /* Debug.Log("Before Pushing " + Obj + " state is " + Obj.CanbePushed);
-        if (levelloaded == Obj.RequiredSceneToSpawn) Obj.CanbePushed = true;
-        Debug.Log("After Pushing " + Obj + " state is " + Obj.CanbePushed);*/
-		/*switch(ObjectiveNumber)
-		{
-		case 0:
-            
-			LObj = new GotoShopping();
-			// always store the spawned objective
-			Obj = LObj;
-            Debug.Log("Before Pushing "+Obj+" state is "+Obj.CanbePushed);
-            if (levelloaded == 0) Obj.CanbePushed = true;
-            Debug.Log("After Pushing "+Obj+" state is " + Obj.CanbePushed);
-			break;
-		case 1:
-            CObj = new CollectMilk();
-            Obj = CObj;
-            inventorymanager.AddCategory(InventoryManager.CategoryTypes.ShoppingMall);
-            Debug.Log("Before Pushing " + Obj + " state is " + Obj.CanbePushed);
-            if (levelloaded == 1) Obj.CanbePushed = true;
-            Debug.Log("After Pushing " + Obj + " state is " + Obj.CanbePushed);
-			break;
-		case 2:
-            LObj = new GotoPostoffice();
-			Obj = LObj;
-            Debug.Log("Before Pushing " + Obj + " state is " + Obj.CanbePushed);
-            if (levelloaded == 0) Obj.CanbePushed = true;
-            Debug.Log("After Pushing " + Obj + " state is " + Obj.CanbePushed);
-           // CompletedObjectives = 0;
-			break;
-        case 3:
-            CObj = new CollectPackage();
-            Obj = CObj;
-            inventorymanager.AddCategory(InventoryManager.CategoryTypes.PostOffice);
-            Debug.Log("Before Pushing " + Obj + " state is " + Obj.CanbePushed);
-            if (levelloaded == 2) Obj.CanbePushed = true;
-            Debug.Log("After Pushing " + Obj + " state is " + Obj.CanbePushed);
-            break;
-        case 4:
-            LObj = new GotoPharmacy();
-            Obj = LObj;
-            Debug.Log("Before Pushing " + Obj + " state is " + Obj.CanbePushed);
-            if (levelloaded == 0) Obj.CanbePushed = true;
-            Debug.Log("After Pushing " + Obj + " state is " + Obj.CanbePushed);
-            break;
-        case 5:
-            CObj = new CollectCream();
-            Obj = CObj;
-            inventorymanager.AddCategory(InventoryManager.CategoryTypes.Pharmacy);
-            Debug.Log("Before Pushing "+Obj+" state is "+Obj.CanbePushed);
-            if (levelloaded == 3) Obj.CanbePushed = true;
-            Debug.Log("After Pushing " + Obj + " state is " + Obj.CanbePushed);
-            break;
-        case 6:
-            LObj = new GotoBank();
-            Obj = LObj;
-            Debug.Log("Before Pushing " + Obj + " state is " + Obj.CanbePushed);
-            if (levelloaded == 0) Obj.CanbePushed = true;
-            Debug.Log("After Pushing " + Obj + " state is " + Obj.CanbePushed);
-            break;
-		default:
-			break;
-		}*/
 	}
 
     public void AddScore(int _score)
